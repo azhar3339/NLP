@@ -60,7 +60,8 @@ class Crawler(object):
                     pass
                 elif anchor["href"][:6] == "/wiki/":
                     # print anchor["href"]
-                    urls.append(self.url_start + anchor["href"])
+                    urls.append({"title":anchor["title"],
+                                 "url":self.url_start + anchor["href"]})
 
         return {
             "category": category,
