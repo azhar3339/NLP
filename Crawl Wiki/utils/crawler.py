@@ -45,7 +45,7 @@ class Crawler(object):
         # By removing links containing these words, we may lose some of the diseases
         # Fix: Fine for now, fix later
         remove_these = ["Template", "ICD", "Wikipedia", "Help", "Main_Page", "%",
-               "Portal", "Special", "World_Health_Organization", "Category"]
+                        "Portal", "Special", "World_Health_Organization", "Category"]
         urls = []
 
         for anchor in soup_obj.findAll('a'):
@@ -60,12 +60,10 @@ class Crawler(object):
                     pass
                 elif anchor["href"][:6] == "/wiki/":
                     # print anchor["href"]
-                    urls.append({"title":anchor["title"],
-                                 "url":self.url_start + anchor["href"]})
+                    urls.append({"title": anchor["title"],
+                                 "url": self.url_start + anchor["href"],
+                                 'category': category,
+                                 "crawled": "No",
+                                 'content': 'None'})
 
-        return {
-            "category": category,
-            "urls": urls
-        }
-
-
+        return urls
