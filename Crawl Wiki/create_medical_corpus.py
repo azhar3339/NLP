@@ -38,8 +38,8 @@ class CreateMedicalCorpus(object):
                                                      {
                                                          '$set':
                                                              {
-                                                                'content': text,
-                                                                'crawled': 'Yes'
+                                                                 'content': text,
+                                                                 'crawled': 'Yes'
                                                              }
                                                      }, doc['_id'])
 
