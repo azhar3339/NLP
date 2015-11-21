@@ -26,9 +26,12 @@ class MongoUtilities(object):
 
     def update_document(self, collection, query, id):
 
-        return self.client[self.db][collection].update_one(
+        try:
+            self.client[self.db][collection].update_one(
             {'_id': id},
             query)
+        except:
+            print "Exception", id
 
 
     def get_uncrawled_docs(self):
